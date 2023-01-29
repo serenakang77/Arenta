@@ -263,4 +263,7 @@ html {
 .header {
   background-image: url("../assets/header-background.png");
   height: 125px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
