@@ -1,6 +1,7 @@
 // import axios from "axios"
 import "./styles/styles.css"
 import PageHeader from "./components/PageHeader"
+import Homepage from "./components/Homepage"
 // import { Routes, Route } from "react-router-dom"
 // import Menu from "./components/Menu"
 
@@ -38,6 +39,7 @@ function App() {
   return (
     <>
       <PageHeader />
+      <Homepage />
       {/* <Routes> */}
       {/* <Route path='/' element={<Menu />} /> */}
       {/* <Route path="" element={}/> */}

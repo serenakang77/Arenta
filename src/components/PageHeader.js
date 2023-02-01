@@ -20,8 +20,8 @@ export default function PageHeader() {
         <div className='headerRight'>
           {/* <a href=''>Log in</a> */}
           <div className='headerRightButton'>
-            <Button variant='outline-danger'>Sign Up</Button>{" "}
-            <Button variant='outline-danger'>Rent your car</Button>{" "}
+            <Button variant='outline-light'>Sign Up</Button>{" "}
+            <Button variant='outline-light'>Rent your car</Button>{" "}
           </div>
         </div>
       </header>

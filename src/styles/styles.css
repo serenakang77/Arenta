@@ -261,8 +261,6 @@ html {
 }
 
 .header {
-  background-image: url("../assets/header-background.png");
-  height: 125px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -271,6 +269,8 @@ html {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  background-color: #cd1c5a;
+  color: white;
 }
 
 .headerLeft {
@@ -281,4 +281,11 @@ html {
 
 .menuIcon {
   width: 30px;
+}
+
+.homepageTop {
+  background-image: url("../assets/homepage-background.png");
+  background-repeat: no-repeat;
+  height: 1080px;
+  background-size: cover;
 }

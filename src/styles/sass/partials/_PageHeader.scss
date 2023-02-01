@@ -1,9 +1,9 @@
 .header {
-  background-image: url("../assets/header-background.png");
-  height: 125px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: #cd1c5a;
+  color: white;
 }
 
 .headerLeft {
