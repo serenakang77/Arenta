@@ -2,10 +2,13 @@
 import "./styles/styles.css"
 import PageHeader from "./components/PageHeader"
 import Homepage from "./components/Homepage"
+import { useState } from "react"
 // import { Routes, Route } from "react-router-dom"
 // import Menu from "./components/Menu"
 
 function App() {
+  const [pickUpLocation, setPickUpLocation] = useState("")
+  console.log(pickUpLocation)
   // const options = {
   //   method: "GET",
   //   url: "https://booking-com.p.rapidapi.com/v1/car-rental/search",
@@ -39,7 +42,10 @@ function App() {
   return (
     <>
       <PageHeader />
-      <Homepage />
+      <Homepage
+        pickUpLocation={pickUpLocation}
+        setPickUpLocation={setPickUpLocation}
+      />
       {/* <Routes> */}
       {/* <Route path='/' element={<Menu />} /> */}
       {/* <Route path="" element={}/> */}
