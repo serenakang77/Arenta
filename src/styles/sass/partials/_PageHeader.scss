@@ -2,4 +2,14 @@
   background-image: url("../assets/header-background.png");
   height: 125px;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.headerLeft {
+  display: flex;
+}
+
+.menuIcon {
+  width: 30px;
 }

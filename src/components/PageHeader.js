@@ -1,18 +1,24 @@
-import menuIcon from "../assets/menu-icon.png"
+import menuIcon from "../assets/bars-solid.svg"
 import Button from "react-bootstrap/Button"
-
+import { useState } from "react"
+import Menu from "./Menu"
 export default function PageHeader() {
+  const [isMenuClicked, setIsMenuClicked] = useState(false)
   return (
     <>
       <header className='header'>
         <div className='headerLeft'>
           <h1>ARENTA</h1>
-          <a href=''>
-            <img src={menuIcon} alt='menuIcon' class='menuIcon' />
-          </a>
+          <img
+            src={menuIcon}
+            alt='menuIcon'
+            className='menuIcon'
+            onClick={() => setIsMenuClicked(!isMenuClicked)}
+          />
         </div>
+        {isMenuClicked ? <Menu /> : console.log("not clicked")}
         <div className='headerRight'>
-          <a href=''>Log in</a>
+          {/* <a href=''>Log in</a> */}
           <div className='headerRightButton'>
             <Button variant='outline-danger'>Sign Up</Button>{" "}
             <Button variant='outline-danger'>Rent your car</Button>{" "}

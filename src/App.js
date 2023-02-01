@@ -2,6 +2,7 @@
 import "./styles/styles.css"
 import PageHeader from "./components/PageHeader"
 // import { Routes, Route } from "react-router-dom"
+// import Menu from "./components/Menu"
 
 function App() {
   // const options = {
@@ -37,6 +38,11 @@ function App() {
   return (
     <>
       <PageHeader />
+      {/* <Routes> */}
+      {/* <Route path='/' element={<Menu />} /> */}
+      {/* <Route path="" element={}/> */}
+      {/* <Route path="" element={}/> */}
+      {/* </Routes> */}
     </>
   )
 }
