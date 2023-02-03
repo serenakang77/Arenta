@@ -1,4 +1,4 @@
-// import axios from "axios"
+import axios from "axios"
 import "./styles/styles.css"
 import PageHeader from "./components/PageHeader"
 import Homepage from "./components/Homepage"
@@ -8,36 +8,28 @@ import { useState } from "react"
 
 function App() {
   const [pickUpLocation, setPickUpLocation] = useState("")
-  console.log(pickUpLocation)
-  // const options = {
-  //   method: "GET",
-  //   url: "https://booking-com.p.rapidapi.com/v1/car-rental/search",
-  //   params: {
-  //     sort_by: "recommended",
-  //     drop_off_latitude: "50.08773",
-  //     pick_up_latitude: "50.08773",
-  //     from_country: "it",
-  //     pick_up_longitude: "14.421133",
-  //     currency: "CAD",
-  //     drop_off_datetime: "2023-04-17 13:00:00",
-  //     pick_up_datetime: "2023-04-16 13:00:00",
-  //     drop_off_longitude: "14.421133",
-  //     locale: "en-gb",
-  //   },
-  //   headers: {
-  //     "X-RapidAPI-Key": "d68a0da33dmshec23235f282deeap141e2bjsn8069a44d4671",
-  //     "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
-  //   },
-  // }
+  const [carApi, setCarApi] = useState("")
 
-  // axios
-  //   .request(options)
-  //   .then(function (response) {
-  //     console.log(response.data)
-  //   })
-  //   .catch(function (error) {
-  //     console.error(error)
-  //   })
+  const apiOption = {
+    method: "get",
+    url: `https://app.ticketmaster.com/discovery/v2/events`,
+    params: {
+      apikey: "9SQCElh2lWz2fRirkaU7NyGQ3I97xegP",
+      city: "Toronto",
+      // classificationName: eventType,
+      // startDateTime: ourStart,
+      // endDateTime: ourEnd,
+      size: "100",
+      sort: "random",
+    },
+  }
+  axios(apiOption)
+    .then(function (response) {
+      console.log(response.data)
+    })
+    .catch(function (error) {
+      console.error(error)
+    })
 
   return (
     <>
@@ -45,6 +37,7 @@ function App() {
       <Homepage
         pickUpLocation={pickUpLocation}
         setPickUpLocation={setPickUpLocation}
+        carApi={carApi}
       />
       {/* <Routes> */}
       {/* <Route path='/' element={<Menu />} /> */}
