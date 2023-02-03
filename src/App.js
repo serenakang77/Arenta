@@ -7,8 +7,8 @@ import { useState } from "react"
 // import Menu from "./components/Menu"
 
 function App() {
-  const [pickUpLocation, setPickUpLocation] = useState("")
-  const [carApi, setCarApi] = useState("")
+  const [location, setLocation] = useState("")
+  const [eventApi, seteventApi] = useState("")
 
   const apiOption = {
     method: "get",
@@ -35,9 +35,9 @@ function App() {
     <>
       <PageHeader />
       <Homepage
-        pickUpLocation={pickUpLocation}
-        setPickUpLocation={setPickUpLocation}
-        carApi={carApi}
+        location={location}
+        setLocation={setLocation}
+        eventApi={eventApi}
       />
       {/* <Routes> */}
       {/* <Route path='/' element={<Menu />} /> */}

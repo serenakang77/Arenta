@@ -1,15 +1,19 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #cd1c5a;
+  background-color: #000000;
   color: white;
 }
 
-.headerLeft {
+.flexContainer {
+  align-items: center;
+  justify-content: space-between;
   display: flex;
 }
 
 .menuIcon {
-  width: 30px;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
 }

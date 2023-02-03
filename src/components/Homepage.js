@@ -1,45 +1,45 @@
 import React from "react"
 import Carousel from "react-bootstrap/Carousel"
 
-function Homepage({ pickUpLocation, setPickUpLocation, carApi }) {
-  //   console.log(carApi)
+function Homepage({ location, setLocation, eventApi }) {
+  //   console.log(eventApi)
   //   function randomNum(arrayLength) {
   //     Math.floor(Math.random() * arrayLength) + 1
   //   }
-  // console.log(carApi)
+  // console.log(eventApi)
   return (
     <>
       <div className='homepageTop'>
         <div className='homepageSearchBar'>
           <form action='' className='homepageForm'>
-            <label htmlFor='pickup'>PICK UP</label>
+            <label htmlFor='location'>Location</label>
             <input
               type='text'
-              placeholder='Pickup location'
-              name='pickup'
+              placeholder='Location'
+              name='location'
               onChange={(event) => {
-                setPickUpLocation(event.target.value)
+                setLocation(event.target.value)
               }}
-              value={pickUpLocation}
-              id='pickup'
+              value={location}
+              id='location'
             />
-            <label htmlFor='checkIn'>CHECK IN</label>
+            <label htmlFor='startDate'>Start Date</label>
             <input
               type='date'
               placeholder='Chose Date'
-              name='checkIn'
+              name='startDate'
               onChange=''
               value=''
-              id='checkIn'
+              id='startDate'
             />
-            <label htmlFor='checkOut'>CHECK OUT</label>
+            <label htmlFor='endDate'>End Date</label>
             <input
               type='date'
-              placeholder='Chose Date'
-              name='checkOut'
+              placeholder='End Date'
+              name='endDate'
               onChange=''
               value=''
-              id='checkOut'
+              id='endDate'
             />
             <button type='submit' onClick=''>
               Search

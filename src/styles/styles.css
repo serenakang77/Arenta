@@ -261,32 +261,35 @@ html {
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background-color: #cd1c5a;
+  background-color: #000000;
   color: white;
 }
 
-.headerLeft {
+.flexContainer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 .menuIcon {
-  width: 30px;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .homepageTop {
-  background-image: url("../assets/homepage-background.png");
+  background-image: url("../assets/header-background.jpg");
   background-repeat: no-repeat;
-  height: 1080px;
+  height: 600px;
   background-size: cover;
 }
 
@@ -306,4 +309,6 @@ html {
 .homepageForm {
   background-color: white;
   padding: 30px;
+  border-radius: 30px;
+  border: 1px solid rgb(70, 69, 69);
 }

@@ -1,7 +1,7 @@
 .homepageTop {
-  background-image: url("../assets/homepage-background.png");
+  background-image: url("../assets/header-background.jpg");
   background-repeat: no-repeat;
-  height: 1080px;
+  height: 600px;
   background-size: cover;
 }
 
@@ -15,4 +15,6 @@
 .homepageForm {
   background-color: white;
   padding: 30px;
+  border-radius: 30px;
+  border: 1px solid rgb(70, 69, 69);
 }
