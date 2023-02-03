@@ -12,40 +12,60 @@ function Homepage({ location, setLocation, eventApi }) {
       <div className='homepageTop'>
         <div className='homepageSearchBar'>
           <form action='' className='homepageForm'>
-            <label htmlFor='location'>Location</label>
-            <input
-              type='text'
-              placeholder='Location'
-              name='location'
-              onChange={(event) => {
-                setLocation(event.target.value)
-              }}
-              value={location}
-              id='location'
-            />
-            <label htmlFor='startDate'>Start Date</label>
-            <input
-              type='date'
-              placeholder='Chose Date'
-              name='startDate'
-              onChange=''
-              value=''
-              id='startDate'
-            />
-            <label htmlFor='endDate'>End Date</label>
-            <input
-              type='date'
-              placeholder='End Date'
-              name='endDate'
-              onChange=''
-              value=''
-              id='endDate'
-            />
+            <div className='locationForm formContainer'>
+              <label htmlFor='location'>Location</label>
+              <input
+                type='text'
+                placeholder='Location'
+                name='location'
+                onChange={(event) => {
+                  setLocation(event.target.value)
+                }}
+                value={location}
+                id='location'
+              />
+            </div>
+            <div className='startDateForm formContainer'>
+              <label htmlFor='startDate'>Start Date</label>
+              <input
+                type='date'
+                placeholder='Chose Date'
+                name='startDate'
+                onChange=''
+                value=''
+                id='startDate'
+              />
+            </div>
+            <div className='endDateForm formContainer'>
+              <label htmlFor='endDate'>End Date</label>
+              <input
+                type='date'
+                placeholder='End Date'
+                name='endDate'
+                onChange=''
+                value=''
+                id='endDate'
+              />
+            </div>
+            <div className='eventTypeForm formContainer'>
+              <label htmlFor='eventType'>Event Type</label>
+              <input
+                type='text'
+                placeholder='eventType'
+                name='eventType'
+                onChange=''
+                value=''
+                id='eventType'
+              />
+            </div>
             <button type='submit' onClick=''>
               Search
             </button>
           </form>
         </div>
+      </div>
+      <div className='homepageHeading'>
+        <h2>UPCOMING EVENTS</h2>
       </div>
       <div className='homepageCarousel'>
         <Carousel>
