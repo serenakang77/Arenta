@@ -15,7 +15,7 @@ function App() {
     url: `https://app.ticketmaster.com/discovery/v2/events`,
     params: {
       apikey: "9SQCElh2lWz2fRirkaU7NyGQ3I97xegP",
-      city: "Toronto",
+      // city: "Toronto",
       // classificationName: eventType,
       // startDateTime: ourStart,
       // endDateTime: ourEnd,
@@ -25,7 +25,7 @@ function App() {
   }
   axios(apiOption)
     .then(function (response) {
-      console.log(response.data)
+      seteventApi(response.data._embedded.events)
     })
     .catch(function (error) {
       console.error(error)

@@ -109,36 +109,15 @@ function Homepage({ location, setLocation, eventApi }) {
         </Carousel>
       </div>
       <div className='homepageMiddle'>
-        <div className='homepageMiddleFirstContainer'>
-          <h3>Drive Your Dream Car</h3>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-            nulla suscipit nobis vel non earum nemo laborum sit sapiente? Quia.
-          </p>
-        </div>
-        <div className='homepageMiddleSecondContainer'>
-          <div className='homepageMiddleFirstStep'>
-            <h4>Find Your Dream Car</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-              omnis!
-            </p>
-          </div>
-          <div className='homepageMiddleSecondStep'>
-            <h4>Contact the Hirer</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-              omnis!
-            </p>
-          </div>
-          <div className='homepageMiddleThirdStep'>
-            <h4>Drive...</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-              omnis!
-            </p>
-          </div>
-        </div>
+        <ul className='homepagePostings wrapper'>
+          {eventApi.map((individual) => {
+            return (
+              <li key={individual.id}>
+                <img src={individual.images[0].url} alt='' />
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </>
   )

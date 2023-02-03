@@ -37,3 +37,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.homepageMiddle {
+  width: 100%;
+}
+.homepagePostings {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    list-style: none;
+    width: 33%;
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
