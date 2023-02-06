@@ -17,7 +17,7 @@ export default function PageHeader() {
             onClick={() => setIsMenuClicked(!isMenuClicked)}
           />
           <h1>ARENTA</h1>
-          {isMenuClicked ? <Menu /> : console.log("not clicked")}
+          {isMenuClicked ? <Menu /> : null}
           <div className='headerRightButton'>
             <Button variant='outline-light'>Sign Up</Button>{" "}
           </div>

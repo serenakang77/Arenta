@@ -364,5 +364,6 @@ html {
   height: 100%;
 }
 .homepagePostings li img {
+  height: 350px;
   width: 100%;
 }

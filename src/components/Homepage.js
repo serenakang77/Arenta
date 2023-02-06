@@ -2,21 +2,23 @@ import React from "react"
 import Carousel from "react-bootstrap/Carousel"
 
 function Homepage({ location, setLocation, eventApi }) {
-  //   console.log(eventApi)
-  //   function randomNum(arrayLength) {
-  //     Math.floor(Math.random() * arrayLength) + 1
-  //   }
-  // console.log(eventApi)
+  const BigImage = (images) => {
+    const filteredArray = images.filter(
+      (individualImage) =>
+        individualImage.width > 350 && individualImage.height > 350
+    )
+    return filteredArray[0].url
+  }
   return (
     <>
       <div className='homepageTop'>
         <div className='homepageSearchBar'>
-          <form action='' className='homepageForm'>
+          {/* <form action='' className='homepageForm'>
             <div className='locationForm formContainer'>
               <label htmlFor='location'>Location</label>
               <input
                 type='text'
-                placeholder='Location'
+                placeholder='Search Your City'
                 name='location'
                 onChange={(event) => {
                   setLocation(event.target.value)
@@ -61,7 +63,7 @@ function Homepage({ location, setLocation, eventApi }) {
             <button type='submit' onClick=''>
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
       <div className='homepageHeading'>
@@ -110,13 +112,15 @@ function Homepage({ location, setLocation, eventApi }) {
       </div>
       <div className='homepageMiddle'>
         <ul className='homepagePostings wrapper'>
-          {eventApi.map((individual) => {
-            return (
-              <li key={individual.id}>
-                <img src={individual.images[0].url} alt='' />
-              </li>
-            )
-          })}
+          {eventApi.length
+            ? eventApi.map((individual) => {
+                return (
+                  <li key={individual.id}>
+                    {<img src={BigImage(individual.images)} alt='' />}
+                  </li>
+                )
+              })
+            : null}
         </ul>
       </div>
     </>
