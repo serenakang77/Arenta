@@ -379,3 +379,10 @@ html {
   background-color: rgba(65, 5, 5, 0.8);
   color: white;
 }
+.homepagePostingTitle h4 {
+  font-size: clamp(1rem, 1.3vw, 2rem);
+  margin: 0;
+}
+.homepagePostingTitle p {
+  margin: 0;
+}
