@@ -19,14 +19,22 @@ function App() {
         // classificationName: eventType,
         // startDateTime: ourStart,
         // endDateTime: ourEnd,
-        size: "50",
+        size: "200",
         sort: "random",
       },
     }
     axios(apiOption)
       .then(function (response) {
         // console.log(response.data)
-        seteventApi(response.data._embedded.events)
+        seteventApi(
+          response.data._embedded.events.filter(
+            (value, index) =>
+              response.data._embedded.events.findIndex(
+                (item) => item.name === value.name
+              ) === index
+          )
+        )
+        // seteventApi(response.data._embedded.events)
       })
       .catch(function (error) {
         console.error(error)

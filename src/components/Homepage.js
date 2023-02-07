@@ -2,13 +2,22 @@ import React from "react"
 import Carousel from "react-bootstrap/Carousel"
 
 function Homepage({ location, setLocation, eventApi }) {
-  const BigImage = (images) => {
+  const bigImage = (images) => {
     const filteredArray = images.filter(
       (individualImage) =>
         individualImage.width > 350 && individualImage.height > 350
     )
     return filteredArray[0].url
   }
+  // const uniqueEvent = (array) => {
+  //   return array.filter(
+  //     (value, index) =>
+  //       array.findIndex((item) => item.name === value.name) === index
+  //   )
+  // }
+  // uniqueEvent(eventApi)
+  // console.log(uniqueEvent(eventApi))
+
   return (
     <>
       <div className='homepageTop'>
@@ -112,11 +121,17 @@ function Homepage({ location, setLocation, eventApi }) {
       </div>
       <div className='homepageMiddle'>
         <ul className='homepagePostings wrapper'>
+          {/* {console.log(eventApi)} */}
           {eventApi.length
             ? eventApi.map((individual) => {
                 return (
                   <li key={individual.id}>
-                    {<img src={BigImage(individual.images)} alt='' />}
+                    {
+                      <img
+                        src={bigImage(individual.images)}
+                        alt={individual.name}
+                      />
+                    }
                   </li>
                 )
               })
