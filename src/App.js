@@ -15,6 +15,7 @@ function App() {
       url: `https://app.ticketmaster.com/discovery/v2/events`,
       params: {
         apikey: "IuMgmOvIfhU9Df4sHJ3ggGEMKzjMXdnD",
+        countryCode: "CA",
         // city: "Toronto",
         // classificationName: eventType,
         // startDateTime: ourStart,
@@ -27,6 +28,16 @@ function App() {
       .then(function (response) {
         // console.log(response.data)
         seteventApi(
+          response.data._embedded.events
+            .filter(
+              (value, index) =>
+                response.data._embedded.events.findIndex(
+                  (item) => item.name === value.name
+                ) === index
+            )
+            .filter((value) => value.priceRanges)
+        )
+        console.log(
           response.data._embedded.events.filter(
             (value, index) =>
               response.data._embedded.events.findIndex(

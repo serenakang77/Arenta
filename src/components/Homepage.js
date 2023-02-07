@@ -17,7 +17,7 @@ function Homepage({ location, setLocation, eventApi }) {
   // }
   // uniqueEvent(eventApi)
   // console.log(uniqueEvent(eventApi))
-
+  const number = 0
   return (
     <>
       <div className='homepageTop'>
@@ -121,17 +121,36 @@ function Homepage({ location, setLocation, eventApi }) {
       </div>
       <div className='homepageMiddle'>
         <ul className='homepagePostings wrapper'>
-          {/* {console.log(eventApi)} */}
           {eventApi.length
             ? eventApi.map((individual) => {
+                {
+                  {
+                    console.log(individual)
+                  }
+                }
                 return (
-                  <li key={individual.id}>
-                    {
-                      <img
-                        src={bigImage(individual.images)}
-                        alt={individual.name}
-                      />
-                    }
+                  <li key={individual.id} className='homepagePosting'>
+                    <img
+                      src={bigImage(individual.images)}
+                      alt={individual.name}
+                    />
+                    <div className='homepagePostingTitle'>
+                      <h4>{individual.name}</h4>
+                      <p>
+                        {individual.dates.start.localDate}{" "}
+                        {individual.dates.start.localTime}
+                      </p>
+                      <p>
+                        {/* {console.log(individual.priceRanges[0])} */}
+                        {individual.priceRanges.length !== 0
+                          ? individual.priceRanges[0].currency
+                          : null}
+                        $
+                        {individual.priceRanges.length !== 0
+                          ? individual.priceRanges[0].min
+                          : null}
+                      </p>
+                    </div>
                   </li>
                 )
               })
