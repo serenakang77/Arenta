@@ -123,11 +123,6 @@ function Homepage({ location, setLocation, eventApi }) {
         <ul className='homepagePostings wrapper'>
           {eventApi.length
             ? eventApi.map((individual) => {
-                {
-                  {
-                    console.log(individual)
-                  }
-                }
                 return (
                   <li key={individual.id} className='homepagePosting'>
                     <img

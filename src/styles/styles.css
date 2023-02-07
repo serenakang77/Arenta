@@ -367,3 +367,15 @@ html {
   height: 350px;
   width: 100%;
 }
+
+.homepagePosting {
+  position: relative;
+}
+
+.homepagePostingTitle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(65, 5, 5, 0.8);
+  color: white;
+}
