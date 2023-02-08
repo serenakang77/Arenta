@@ -8,9 +8,15 @@ import { useState, useEffect } from "react"
 // import Menu from "./components/Menu"
 
 function App() {
-  const [location, setLocation] = useState("")
+  const [formInfo, setFormInfo] = useState({
+    startDate: new Date().toISOString().substring(0, 10),
+    // startDate: new Date().toISOString().substring(0, 10),
+    endDate: new Date().toISOString().substring(0, 10),
+    // endDate: new Date().toISOString().substring(0, 19) + "Z",
+  })
+  console.log(formInfo)
   const [eventApi, seteventApi] = useState("")
-  const [startDate, setStartDate] = useState(new Date())
+  // const [startDate, setStartDate] = useState(new Date())
   let today = new Date()
   // const dd = today.getDate()
   // const mm = today.getMonth()
@@ -24,14 +30,17 @@ function App() {
       params: {
         apikey: "IuMgmOvIfhU9Df4sHJ3ggGEMKzjMXdnD",
         countryCode: "CA",
+        city: formInfo.location,
         // city: "Toronto",
         // classificationName: eventType,
-        startDateTime: "2023-02-07T00:00:00Z",
-        // endDateTime: ourEnd,
+        startDateTime: formInfo.startDate + "T00:00:00Z",
+        // startDateTime: "2023-02-07T00:00:00Z",
+        endDateTime: formInfo.endDate + "T00:00:00Z",
         size: "200",
         sort: "random",
       },
     }
+    console.log(formInfo.startDate)
     axios(apiOption)
       .then(function (response) {
         // console.log(response.data)
@@ -59,17 +68,17 @@ function App() {
       .catch(function (error) {
         console.error(error)
       })
-  }, [])
+  }, [formInfo])
 
   return (
     <>
       <PageHeader />
       <Homepage
-        location={location}
-        setLocation={setLocation}
+        formInfo={formInfo}
+        setFormInfo={setFormInfo}
         eventApi={eventApi}
-        startDate={startDate}
-        setStartDate={setStartDate}
+        // startDate={startDate}
+        // setStartDate={setStartDate}
       />
       {/* <Routes> */}
       {/* <Route path='/' element={<Menu />} /> */}

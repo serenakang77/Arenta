@@ -1,12 +1,15 @@
 import React from "react"
 import Carousel from "react-bootstrap/Carousel"
+import DatePicker from "react-datepicker"
+
+import "react-datepicker/dist/react-datepicker.css"
 
 function Homepage({
-  location,
-  setLocation,
+  formInfo,
+  setFormInfo,
   eventApi,
-  startDate,
-  setStartDate,
+  // startDate,
+  // setStartDate,
 }) {
   const bigImage = (images) => {
     const filteredArray = images.filter(
@@ -23,10 +26,8 @@ function Homepage({
   // }
   // uniqueEvent(eventApi)
   console.log(eventApi)
-  let curr = new Date()
-  console.log(curr)
-  let date = curr.toISOString().substring(0, 10)
-  console.log(date)
+  console.log(formInfo)
+
   return (
     <>
       <div className='homepageTop'>
@@ -39,9 +40,9 @@ function Homepage({
                 placeholder='Search Your City'
                 name='location'
                 onChange={(event) => {
-                  setLocation(event.target.value)
+                  setFormInfo({ ...formInfo, location: event.target.value })
                 }}
-                value={location}
+                value={formInfo.location}
                 id='location'
               />
             </div>
@@ -51,10 +52,21 @@ function Homepage({
                 type='date'
                 placeholder='Chose Date'
                 name='startDate'
-                onChange=''
-                value={date}
+                onChange={(event) => {
+                  setFormInfo({ ...formInfo, startDate: event.target.value })
+                }}
+                value={formInfo.startDate}
                 id='startDate'
               />
+              {/* <DatePicker
+                dateFormat='dd/MM/yyyy'
+                closeCalendar={false}
+                minDate={new Date()}
+                onChange={(date) => {
+                  setFormInfo({ ...formInfo, startDate: date })
+                }}
+                value={formInfo.startDate}
+              /> */}
             </div>
             <div className='endDateForm formContainer'>
               <label htmlFor='endDate'>End Date</label>
@@ -62,8 +74,10 @@ function Homepage({
                 type='date'
                 placeholder='End Date'
                 name='endDate'
-                onChange=''
-                value=''
+                onChange={(event) => {
+                  setFormInfo({ ...formInfo, endDate: event.target.value })
+                }}
+                value={formInfo.endDate}
                 id='endDate'
               />
             </div>
