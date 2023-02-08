@@ -1,11 +1,17 @@
 import React from "react"
 import Carousel from "react-bootstrap/Carousel"
 
-function Homepage({ location, setLocation, eventApi }) {
+function Homepage({
+  location,
+  setLocation,
+  eventApi,
+  startDate,
+  setStartDate,
+}) {
   const bigImage = (images) => {
     const filteredArray = images.filter(
       (individualImage) =>
-        individualImage.width > 350 && individualImage.height > 350
+        individualImage.width === 640 && individualImage.height === 427
     )
     return filteredArray[0].url
   }
@@ -16,13 +22,16 @@ function Homepage({ location, setLocation, eventApi }) {
   //   )
   // }
   // uniqueEvent(eventApi)
-  // console.log(uniqueEvent(eventApi))
-  const number = 0
+  console.log(eventApi)
+  let curr = new Date()
+  console.log(curr)
+  let date = curr.toISOString().substring(0, 10)
+  console.log(date)
   return (
     <>
       <div className='homepageTop'>
         <div className='homepageSearchBar'>
-          {/* <form action='' className='homepageForm'>
+          <form action='' className='homepageForm'>
             <div className='locationForm formContainer'>
               <label htmlFor='location'>Location</label>
               <input
@@ -43,7 +52,7 @@ function Homepage({ location, setLocation, eventApi }) {
                 placeholder='Chose Date'
                 name='startDate'
                 onChange=''
-                value=''
+                value={date}
                 id='startDate'
               />
             </div>
@@ -72,7 +81,7 @@ function Homepage({ location, setLocation, eventApi }) {
             <button type='submit' onClick=''>
               Search
             </button>
-          </form> */}
+          </form>
         </div>
       </div>
       <div className='homepageHeading'>
@@ -137,13 +146,8 @@ function Homepage({ location, setLocation, eventApi }) {
                       </p>
                       <p>
                         {/* {console.log(individual.priceRanges[0])} */}
-                        {individual.priceRanges.length !== 0
-                          ? individual.priceRanges[0].currency
-                          : null}
-                        $
-                        {individual.priceRanges.length !== 0
-                          ? individual.priceRanges[0].min
-                          : null}
+                        Starts at {individual.priceRanges[0].currency} ${" "}
+                        {individual.priceRanges[0].min}
                       </p>
                     </div>
                   </li>

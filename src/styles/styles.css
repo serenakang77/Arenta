@@ -364,7 +364,7 @@ html {
   height: 100%;
 }
 .homepagePostings li img {
-  height: 350px;
+  height: auto;
   width: 100%;
 }
 
@@ -379,6 +379,8 @@ html {
   background-color: rgba(65, 5, 5, 0.8);
   color: white;
   padding: 5px;
+  left: 0;
+  text-align: right;
 }
 .homepagePostingTitle h4 {
   font-size: clamp(1rem, 1.3vw, 2rem);
