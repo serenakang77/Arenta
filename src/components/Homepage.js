@@ -1,13 +1,12 @@
-import React from "react"
 import Carousel from "react-bootstrap/Carousel"
-import DatePicker from "react-datepicker"
-
-import "react-datepicker/dist/react-datepicker.css"
+import { useState } from "react"
 
 function Homepage({
   formInfo,
   setFormInfo,
   eventApi,
+  formButton,
+  setFormButton,
   // startDate,
   // setStartDate,
 }) {
@@ -18,21 +17,62 @@ function Homepage({
     )
     return filteredArray[0].url
   }
-  // const uniqueEvent = (array) => {
-  //   return array.filter(
-  //     (value, index) =>
-  //       array.findIndex((item) => item.name === value.name) === index
-  //   )
-  // }
-  // uniqueEvent(eventApi)
-  console.log(eventApi)
-  console.log(formInfo)
 
+  // const formContainer = [
+  //   {
+  //     name: "location",
+  //     type: "text",
+  //     placeholder: "Search Your City",
+  //     className: "locationForm",
+  //   },
+  //   {
+  //     name: "startDate",
+  //     type: "date",
+  //     placeholder: "Chose Date",
+  //     className: "startDateForm",
+  //   },
+  //   {
+  //     name: "endDate",
+  //     type: "date",
+  //     placeholder: "End Date",
+  //     className: "endDateForm",
+  //   },
+  //   {
+  //     name: "eventType",
+  //     type: "text",
+  //     placeholder: "eventType",
+  //     className: "eventTypeForm",
+  //   },
+  // ]
   return (
     <>
       <div className='homepageTop'>
         <div className='homepageSearchBar'>
           <form action='' className='homepageForm'>
+            {/* {formContainer.map((individual) => {
+              return (
+                <div className={`formContainer ${individual.className}`}> */}
+            {/* const formContainer = [{name: "location", type: "text", placeholder: "Search Your City"}, {name: "startDate", type: "date", placeholder: "Chose Date"}, {name: "endDate", type: "date", placeholder: "End Date"}, {name: "eventType", type: "text", placeholder: "eventType"}] */}
+
+            {/* <label htmlFor={individual.name}>
+                    {individual.name.toUpperCase()}
+                  </label>
+                  <input
+                    type={individual.type}
+                    placeholder={individual.placeholder}
+                    name={individual.name} 
+                    onChange={(event) => {
+                      setFormInfo({
+                        ...formInfo,
+                        {individual.name}: event.target.value,
+                      })
+                    }}
+                    value={formInfo[individual.name]}
+                    id={individual.name}
+                  />
+                </div>
+              )
+            })} */}
             <div className='locationForm formContainer'>
               <label htmlFor='location'>Location</label>
               <input
@@ -58,15 +98,6 @@ function Homepage({
                 value={formInfo.startDate}
                 id='startDate'
               />
-              {/* <DatePicker
-                dateFormat='dd/MM/yyyy'
-                closeCalendar={false}
-                minDate={new Date()}
-                onChange={(date) => {
-                  setFormInfo({ ...formInfo, startDate: date })
-                }}
-                value={formInfo.startDate}
-              /> */}
             </div>
             <div className='endDateForm formContainer'>
               <label htmlFor='endDate'>End Date</label>
@@ -87,12 +118,20 @@ function Homepage({
                 type='text'
                 placeholder='eventType'
                 name='eventType'
-                onChange=''
-                value=''
+                onChange={(event) => {
+                  setFormInfo({ ...formInfo, eventType: event.target.value })
+                }}
+                value={formInfo.eventType}
                 id='eventType'
               />
             </div>
-            <button type='submit' onClick=''>
+            <button
+              type='submit'
+              onClick={(e) => {
+                e.preventDefault()
+                setFormButton(!formButton)
+              }}
+            >
               Search
             </button>
           </form>

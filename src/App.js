@@ -10,19 +10,11 @@ import { useState, useEffect } from "react"
 function App() {
   const [formInfo, setFormInfo] = useState({
     startDate: new Date().toISOString().substring(0, 10),
-    // startDate: new Date().toISOString().substring(0, 10),
-    endDate: new Date().toISOString().substring(0, 10),
-    // endDate: new Date().toISOString().substring(0, 19) + "Z",
+    // endDate: new Date().toISOString().substring(0, 10),
   })
+  const [formButton, setFormButton] = useState(false)
   console.log(formInfo)
   const [eventApi, seteventApi] = useState("")
-  // const [startDate, setStartDate] = useState(new Date())
-  let today = new Date()
-  // const dd = today.getDate()
-  // const mm = today.getMonth()
-  // const yyyy = today.getFullYear()
-  // today = yyyy + "-" + mm + "-" + dd
-  console.log(today)
   useEffect(() => {
     const apiOption = {
       method: "get",
@@ -31,19 +23,16 @@ function App() {
         apikey: "IuMgmOvIfhU9Df4sHJ3ggGEMKzjMXdnD",
         countryCode: "CA",
         city: formInfo.location,
-        // city: "Toronto",
-        // classificationName: eventType,
+        classificationName: formInfo.eventType,
         startDateTime: formInfo.startDate + "T00:00:00Z",
         // startDateTime: "2023-02-07T00:00:00Z",
-        endDateTime: formInfo.endDate + "T00:00:00Z",
+        endDateTime: formInfo.endDate ? formInfo.endDate + "T00:00:00Z" : null,
         size: "200",
         sort: "random",
       },
     }
-    console.log(formInfo.startDate)
     axios(apiOption)
       .then(function (response) {
-        // console.log(response.data)
         seteventApi(
           response.data._embedded.events
             .filter(
@@ -53,7 +42,6 @@ function App() {
                 ) === index
             )
             .filter((value) => value.priceRanges)
-          // .filter((value) => value.dates.start.localDate > today)
         )
         console.log(
           response.data._embedded.events.filter(
@@ -63,12 +51,11 @@ function App() {
               ) === index
           )
         )
-        // seteventApi(response.data._embedded.events)
       })
       .catch(function (error) {
         console.error(error)
       })
-  }, [formInfo])
+  }, [formButton])
 
   return (
     <>
@@ -77,6 +64,8 @@ function App() {
         formInfo={formInfo}
         setFormInfo={setFormInfo}
         eventApi={eventApi}
+        formButton={formButton}
+        setFormButton={setFormButton}
         // startDate={startDate}
         // setStartDate={setStartDate}
       />
