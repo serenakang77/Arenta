@@ -2,9 +2,9 @@ import axios from "axios"
 import "./styles/styles.css"
 import PageHeader from "./components/PageHeader"
 import Homepage from "./components/Homepage"
+import EventDetail from "./components/EventDetail"
 import { useState, useEffect } from "react"
-
-// import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 // import Menu from "./components/Menu"
 
 function App() {
@@ -13,7 +13,6 @@ function App() {
     // endDate: new Date().toISOString().substring(0, 10),
   })
   const [formButton, setFormButton] = useState(false)
-  console.log(formInfo)
   const [eventApi, seteventApi] = useState("")
   useEffect(() => {
     const apiOption = {
@@ -43,14 +42,6 @@ function App() {
             )
             .filter((value) => value.priceRanges)
         )
-        console.log(
-          response.data._embedded.events.filter(
-            (value, index) =>
-              response.data._embedded.events.findIndex(
-                (item) => item.name === value.name
-              ) === index
-          )
-        )
       })
       .catch(function (error) {
         console.error(error)
@@ -69,11 +60,14 @@ function App() {
         // startDate={startDate}
         // setStartDate={setStartDate}
       />
-      {/* <Routes> */}
-      {/* <Route path='/' element={<Menu />} /> */}
-      {/* <Route path="" element={}/> */}
-      {/* <Route path="" element={}/> */}
-      {/* </Routes> */}
+      <Routes>
+        {/* <Route path='/' element={<Menu />} /> */}
+        <Route
+          path='/event/:id'
+          element={<EventDetail formInfo={formInfo} />}
+        />
+        {/* <Route path="" element={}/> */}
+      </Routes>
     </>
   )
 }

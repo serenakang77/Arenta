@@ -1,5 +1,6 @@
 import Carousel from "react-bootstrap/Carousel"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function Homepage({
   formInfo,
@@ -186,24 +187,29 @@ function Homepage({
           {eventApi.length
             ? eventApi.map((individual) => {
                 return (
-                  <li key={individual.id} className='homepagePosting'>
-                    <img
-                      src={bigImage(individual.images)}
-                      alt={individual.name}
-                    />
-                    <div className='homepagePostingTitle'>
-                      <h4>{individual.name}</h4>
-                      <p>
-                        {individual.dates.start.localDate}{" "}
-                        {individual.dates.start.localTime}
-                      </p>
-                      <p>
-                        {/* {console.log(individual.priceRanges[0])} */}
-                        Starts at {individual.priceRanges[0].currency} ${" "}
-                        {individual.priceRanges[0].min}
-                      </p>
-                    </div>
-                  </li>
+                  <Link
+                    to={`event/${individual.id}`}
+                    className='homepageEventContainer'
+                  >
+                    <li key={individual.id} className='homepagePosting'>
+                      <img
+                        src={bigImage(individual.images)}
+                        alt={individual.name}
+                      />
+                      <div className='homepagePostingTitle'>
+                        <h4>{individual.name}</h4>
+                        <p>
+                          {individual.dates.start.localDate}{" "}
+                          {individual.dates.start.localTime}
+                        </p>
+                        <p>
+                          {/* {console.log(individual.priceRanges[0])} */}
+                          Starts at {individual.priceRanges[0].currency} ${" "}
+                          {individual.priceRanges[0].min}
+                        </p>
+                      </div>
+                    </li>
+                  </Link>
                 )
               })
             : null}
